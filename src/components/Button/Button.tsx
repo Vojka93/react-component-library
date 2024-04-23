@@ -1,12 +1,25 @@
 import React from 'react'
-import './Button.css'
+import './Button.scss'
 
 interface ButtonProps {
-  label: string
+  disabled?: boolean
+  name?: string
+  children?: React.ReactNode
+  type: 'button' | 'reset' | 'submit'
+  color?: 'primary' | 'secondary'
 }
 
 const Button = (props: ButtonProps) => {
-  return <button>{props.label}</button>
+  return (
+    <button
+      className={`${props.color}`}
+      disabled={props.disabled}
+      name={props.name}
+      type={props.type}
+    >
+      {props.children}
+    </button>
+  )
 }
 
 export default Button

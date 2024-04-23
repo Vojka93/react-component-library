@@ -107,12 +107,12 @@
     "skipLibCheck": true /* Skip type checking all .d.ts files. */,
     "jsx": "react",
     "module": "ESNext",
-    "declaration": true,
+    "declaration": true /* Generates type declaration files (.d.ts) which allows both js and ts users to use the library */,
     "declarationDir": "types",
-    "sourceMap": true,
-    "outDir": "dist",
+    "sourceMap": true /* good for debugging since it shows the line of erros directly into .ts file instead of the exported .js file  */,
+    "outDir": "dist" /* bundle the library into the dist folder*/,
     "moduleResolution": "Node",
-    "allowSyntheticDefaultImports": true,
-    "emitDeclarationOnly": true
+    "allowSyntheticDefaultImports": true /* if it's not a default export, it will assume that it's a default export */,
+    "emitDeclarationOnly": true /* rollup is the tool for bundling .js files, that's why typescript will only undle type files */
   }
 }

@@ -1,0 +1,11 @@
+button {
+  font-size: 1rem;
+
+  &.primary {
+    background-color: red;
+  }
+
+  &.secondary {
+    background-color: gray;
+  }
+}
