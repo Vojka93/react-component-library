@@ -1,11 +1,80 @@
-button {
-  font-size: 1rem;
+@import '../index';
 
-  &.primary {
-    background-color: red;
+@mixin btn($bg-color: #e2e2e2) {
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  border: 0;
+  padding: $base-padding * 1.5 $base-padding * 2;
+  border-radius: $base-border-radius;
+  background-color: $bg-color;
+  color: map-get($colors, 'white');
+  font-weight: 600;
+
+  &:hover {
+    background-color: lighten($bg-color, 5);
+  }
+}
+
+.btn {
+  @include btn;
+
+  &.tiny {
+    font-size: $font-size-tiny;
+    padding: $base-padding * 0.5 $base-padding;
   }
 
-  &.secondary {
-    background-color: gray;
+  &.small {
+    font-size: $font-size-small;
+    padding: $base-padding $base-padding * 1.5;
+  }
+
+  &.medium {
+    font-size: $font-size-medium;
+    padding: $base-padding * 1.5 $base-padding * 2;
+  }
+
+  &.large {
+    font-size: $font-size-large;
+    padding: $base-padding * 2 $base-padding * 2.5;
+  }
+
+  &.big {
+    font-size: $font-size-big;
+    padding: $base-padding * 2.5 $base-padding * 3;
+  }
+}
+
+@each $key, $value in $colors {
+  .#{$key} {
+    background-color: $value;
+
+    &.contained {
+      color: map-get($colors, 'white');
+
+      &:hover {
+        background-color: lighten($value, 5);
+      }
+    }
+
+    &.outlined {
+      background-color: map-get($colors, 'white');
+      border: $base-border-thickness solid $value;
+      color: $value;
+
+      &:hover {
+        background-color: lighten($value, 40);
+      }
+    }
+
+    &.link {
+      background-color: map-get($colors, 'white');
+      color: $value;
+      border: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 }

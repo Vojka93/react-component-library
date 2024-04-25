@@ -17,14 +17,16 @@ type Story = StoryObj<typeof Button>
 export const HelloWorld: Story = {
   args: {
     children: 'Hello World',
-    color: 'secondary',
+    size: 'large',
+    color: 'info',
+    variant: 'outlined',
   },
 }
 
 export const ClickMe: Story = {
   args: {
     children: 'Click me!',
-    color: 'primary',
-    disabled: false,
+    color: 'secondary',
+    size: 'medium',
   },
 }
