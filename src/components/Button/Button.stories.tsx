@@ -18,7 +18,7 @@ export const HelloWorld: Story = {
   args: {
     children: 'Hello World',
     size: 'large',
-    color: 'info',
+    color: 'error',
     variant: 'outlined',
   },
 }

@@ -1,12 +1,25 @@
 import React from 'react'
 import './Button.scss'
 
+type Color =
+  | 'primary'
+  | 'secondary'
+  | 'error'
+  | 'info'
+  | 'blue'
+  | 'red'
+  | 'yellow'
+  | 'green'
+  | 'orange'
+  | 'purple'
+  | 'gray'
+
 interface ButtonProps {
   disabled?: boolean
   name?: string
   children?: React.ReactNode
   type?: 'button' | 'reset' | 'submit'
-  color?: 'primary' | 'secondary' | 'error' | 'info'
+  color?: Color
   size?: 'tiny' | 'small' | 'medium' | 'large' | 'big'
   variant?: 'outlined' | 'contained' | 'link'
   style: React.CSSProperties
