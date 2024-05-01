@@ -1,32 +1,20 @@
 import React from 'react'
+import { Color } from '../types'
 import './Button.scss'
 
-type Color =
-  | 'primary'
-  | 'secondary'
-  | 'error'
-  | 'info'
-  | 'blue'
-  | 'red'
-  | 'yellow'
-  | 'green'
-  | 'orange'
-  | 'purple'
-  | 'gray'
-
 interface ButtonProps {
+  style?: React.CSSProperties
   disabled?: boolean
   name?: string
   children?: React.ReactNode
   type?: 'button' | 'reset' | 'submit'
   color?: Color
   size?: 'tiny' | 'small' | 'medium' | 'large' | 'big'
-  variant?: 'outlined' | 'contained' | 'link'
-  style: React.CSSProperties
+  variant: 'outlined' | 'contained' | 'link'
 }
 
 const Button = (props: ButtonProps) => {
-  let className = `btn${props.color === undefined ? '' : ` ${props.color}`}${props.size === undefined ? '' : ` ${props.size}`}${props.variant === undefined ? '' : ` ${props.variant}`}`
+  let className = `${props.color === undefined ? '' : `btn-${props.color}`}${props.size === undefined ? '' : ` btn-${props.size}`}${props.variant === undefined ? '' : ` btn-${props.variant}`}`
 
   return (
     <button

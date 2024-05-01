@@ -8,7 +8,7 @@
   padding: $base-padding * 1.5 $base-padding * 2;
   border-radius: $base-border-radius;
   background-color: $bg-color;
-  color: map-get($colors, 'white');
+  color: white;
   font-weight: 600;
 
   &:hover {
@@ -16,49 +16,49 @@
   }
 }
 
-.btn {
+button {
   @include btn;
 
-  &.tiny {
+  &.btn-tiny {
     font-size: $font-size-tiny;
     padding: $base-padding * 0.5 $base-padding;
   }
 
-  &.small {
+  &.btn-small {
     font-size: $font-size-small;
     padding: $base-padding $base-padding * 1.5;
   }
 
-  &.medium {
+  &.btn-medium {
     font-size: $font-size-medium;
     padding: $base-padding * 1.5 $base-padding * 2;
   }
 
-  &.large {
+  &.btn-large {
     font-size: $font-size-large;
     padding: $base-padding * 2 $base-padding * 2.5;
   }
 
-  &.big {
+  &.btn-big {
     font-size: $font-size-big;
     padding: $base-padding * 2.5 $base-padding * 3;
   }
 }
 
 @each $key, $value in $colors {
-  .#{$key} {
+  .btn-#{$key} {
     background-color: $value;
 
-    &.contained {
-      color: map-get($colors, 'white');
+    &.btn-contained {
+      color: white;
 
       &:hover {
         background-color: lighten($value, 5);
       }
     }
 
-    &.outlined {
-      background-color: map-get($colors, 'white');
+    &.btn-outlined {
+      background-color: white;
       border: $base-border-thickness solid $value;
       color: $value;
 
@@ -67,8 +67,8 @@
       }
     }
 
-    &.link {
-      background-color: map-get($colors, 'white');
+    &.btn-link {
+      background-color: white;
       color: $value;
       border: none;
 
