@@ -14,19 +14,29 @@ export default meta
 type Story = StoryObj<typeof Button>
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const HelloWorld: Story = {
+export const Contained: Story = {
   args: {
-    children: 'Hello World',
-    size: 'large',
+    children: 'Click me!',
+    size: 'medium',
     color: 'error',
-    variant: 'outlined',
+    variant: 'contained',
   },
 }
 
-export const ClickMe: Story = {
+export const Outlined: Story = {
   args: {
     children: 'Click me!',
     color: 'secondary',
     size: 'medium',
+    variant: 'outlined',
+  },
+}
+
+export const Link: Story = {
+  args: {
+    children: 'Click me!',
+    color: 'primary',
+    size: 'medium',
+    variant: 'link',
   },
 }
