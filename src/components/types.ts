@@ -1,0 +1,13 @@
+export type Color =
+  | 'primary'
+  | 'secondary'
+  | 'error'
+  | 'info'
+  | 'blue'
+  | 'red'
+  | 'yellow'
+  | 'green'
+  | 'orange'
+  | 'purple'
+  | 'gray'
+  | 'black'
