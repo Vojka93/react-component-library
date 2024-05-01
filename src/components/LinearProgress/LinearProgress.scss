@@ -1,0 +1,47 @@
+@import '../index';
+
+// variable
+$width: 200px;
+
+.linear-progress {
+  width: $width;
+  height: 10px;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-color);
+
+  &:after {
+    content: ' ';
+    display: block;
+    height: inherit;
+    position: absolute;
+    z-index: 2;
+    background: var(--fill-color);
+  }
+
+  &[data-variant='indeterminate'] {
+    &:after {
+      width: calc($width / 100 * 60);
+      animation: progress 2s linear infinite;
+    }
+  }
+
+  &[data-variant='determinate'] {
+    &:after {
+      width: var(--fill-width);
+      animation: none;
+      transition: width 500ms;
+    }
+  }
+
+  @keyframes progress {
+    from {
+      left: calc($width / 100 * 60 * -1);
+    }
+
+    to {
+      left: 100%;
+    }
+  }
+}
