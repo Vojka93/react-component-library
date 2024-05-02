@@ -10,6 +10,7 @@ interface CircularProgressProps {
 }
 
 const CircularProgress = ({
+  style,
   value = 0,
   color = 'primary',
 }: CircularProgressProps) => {
@@ -28,7 +29,8 @@ const CircularProgress = ({
 
   return (
     <div
-      ref={ref}
+      ref={ref!}
+      style={style}
       className="circular-progress"
       data-value={value >= 100 ? 100 : value}
     />

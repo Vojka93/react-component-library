@@ -19,7 +19,12 @@ type ConditionalProps =
 
 type Props = CommonProps & ConditionalProps
 
-const LinearProgress = ({ style, variant, value, color }: Props) => {
+const LinearProgress = ({
+  style,
+  variant,
+  value,
+  color = 'primary',
+}: Props) => {
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -35,7 +40,7 @@ const LinearProgress = ({ style, variant, value, color }: Props) => {
 
   return (
     <div
-      ref={ref}
+      ref={ref!}
       style={style}
       className="linear-progress"
       data-variant={variant}
