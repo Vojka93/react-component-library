@@ -3,33 +3,44 @@ $primary: #326dee !default;
 $secondary: #1ac886 !default;
 $error: #d32752 !default;
 $info: #f6c31c !default;
+$blue: #1919e6 !default;
+$red: #e61919 !default;
+$yellow: #e6e619 !default;
+$green: #19e635 !default;
+$orange: #ffa600 !default;
+$purple: #9900ff !default;
+$gray: #808080 !default;
+$black: black !default;
 
 // color palette
-$colors: (
+$base-colors: (
   'primary': $primary,
   'secondary': $secondary,
   'error': $error,
   'info': $info,
-  'blue': #1919e6,
-  'red': #e61919,
-  'yellow': #e6e619,
-  'green': #19e635,
-  'orange': #ffa600,
-  'purple': #9900ff,
-  'gray': #808080,
-  'black': black,
+  'blue': $blue,
+  'red': $red,
+  'yellow': $yellow,
+  'green': $green,
+  'orange': $orange,
+  'purple': $purple,
+  'gray': $gray,
+  'black': $black,
+);
+
+$light-colors: (
   'light-primary': lighten($primary, 35),
   'light-secondary': lighten($secondary, 45),
   'light-error': lighten($error, 45),
   'light-info': lighten($info, 35),
-  'light-blue': lighten(#1919e6, 45),
-  'light-red': lighten(#e61919, 45),
-  'light-yellow': lighten(#e6e619, 40),
-  'light-green': lighten(#19e635, 45),
-  'light-orange': lighten(#ffa600, 40),
-  'light-purple': lighten(#9900ff, 45),
-  'light-gray': lighten(#808080, 40),
-  'light-black': lighten(black, 85),
+  'light-blue': lighten($blue, 45),
+  'light-red': lighten($red, 45),
+  'light-yellow': lighten($yellow, 40),
+  'light-green': lighten($green, 45),
+  'light-orange': lighten($orange, 40),
+  'light-purple': lighten($purple, 45),
+  'light-gray': lighten($gray, 40),
+  'light-black': lighten($black, 85),
 );
 
 // spacing
@@ -52,7 +63,10 @@ $font-size-large: $base-font-size * 1.25;
 $font-size-big: $base-font-size * 1.5;
 
 :export {
-  @each $name, $color in $colors {
+  @each $name, $color in $base-colors {
+    #{$name}: $color;
+  }
+  @each $name, $color in $light-colors {
     #{$name}: $color;
   }
 }

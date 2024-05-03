@@ -1,23 +1,19 @@
 @import '../index';
 
-@mixin btn($bg-color: #e2e2e2) {
+button {
   text-decoration: none;
   cursor: pointer;
   display: inline-block;
   border: 0;
   padding: $base-padding * 1.5 $base-padding * 2;
   border-radius: $base-border-radius;
-  background-color: $bg-color;
+  background-color: #e2e2e2;
   color: white;
   font-weight: 600;
 
   &:hover {
-    background-color: lighten($bg-color, 5);
+    background-color: lighten(#e2e2e2, 5);
   }
-}
-
-button {
-  @include btn;
 
   &.btn-tiny {
     font-size: $font-size-tiny;
@@ -45,7 +41,7 @@ button {
   }
 }
 
-@each $key, $value in $colors {
+@each $key, $value in $base-colors {
   .btn-#{$key} {
     background-color: $value;
 
@@ -63,7 +59,7 @@ button {
       color: $value;
 
       &:hover {
-        background-color: lighten($value, 40);
+        background-color: map-get($light-colors, 'light-#{$key}');
       }
     }
 
