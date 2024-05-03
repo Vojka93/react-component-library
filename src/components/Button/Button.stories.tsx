@@ -17,16 +17,13 @@ type Story = StoryObj<typeof Button>
 export const Contained: Story = {
   args: {
     children: 'Click me!',
-    size: 'medium',
-    color: 'error',
-    variant: 'contained',
   },
 }
 
 export const Outlined: Story = {
   args: {
     children: 'Click me!',
-    color: 'secondary',
+    color: 'primary',
     size: 'medium',
     variant: 'outlined',
   },

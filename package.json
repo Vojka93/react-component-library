@@ -1,6 +1,6 @@
 {
   "name": "@Vojka93/react-component-library",
-  "version": "0.0.6",
+  "version": "0.0.10",
   "scripts": {
     "rollup": "rollup -c",
     "test": "jest",

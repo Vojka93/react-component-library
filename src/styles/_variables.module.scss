@@ -61,12 +61,3 @@ $font-size-small: $base-font-size * 0.875;
 $font-size-medium: $base-font-size;
 $font-size-large: $base-font-size * 1.25;
 $font-size-big: $base-font-size * 1.5;
-
-:export {
-  @each $name, $color in $base-colors {
-    #{$name}: $color;
-  }
-  @each $name, $color in $light-colors {
-    #{$name}: $color;
-  }
-}

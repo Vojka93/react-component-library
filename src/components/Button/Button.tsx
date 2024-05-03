@@ -1,6 +1,7 @@
 import React from 'react'
-import { Color } from '../types'
+import { Color } from '../../types/types'
 import './Button.scss'
+import { globalTheme } from '../../variables'
 
 interface ButtonProps {
   style?: React.CSSProperties
@@ -10,21 +11,30 @@ interface ButtonProps {
   type?: 'button' | 'reset' | 'submit'
   color?: Color
   size?: 'tiny' | 'small' | 'medium' | 'large' | 'big'
-  variant: 'outlined' | 'contained' | 'link'
+  variant?: 'outlined' | 'contained' | 'link'
 }
 
-const Button = (props: ButtonProps) => {
-  let className = `${props.color === undefined ? '' : `btn-${props.color}`}${props.size === undefined ? '' : ` btn-${props.size}`}${props.variant === undefined ? '' : ` btn-${props.variant}`}`
+const Button = ({
+  style,
+  disabled,
+  name,
+  children,
+  type,
+  color = 'primary',
+  size = 'medium',
+  variant = 'contained',
+}: ButtonProps) => {
+  let className = `btn-${color} btn-${size} btn-${variant}`
 
   return (
     <button
-      style={props.style}
+      style={style}
       className={className}
-      disabled={props.disabled}
-      name={props.name}
-      type={props.type}
+      disabled={disabled}
+      name={name}
+      type={type}
     >
-      {props.children}
+      {children}
     </button>
   )
 }

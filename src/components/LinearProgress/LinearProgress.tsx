@@ -1,12 +1,13 @@
 import React, { useEffect, useRef } from 'react'
-import { Color } from '../types'
+import { Color } from '../../types/types'
 import './LinearProgress.scss'
-import colors from './../_variables.module.scss'
+import { globalTheme } from '../../variables'
 
 interface CommonProps {
   style?: React.CSSProperties
   color?: Color
 }
+
 type ConditionalProps =
   | {
       variant: 'indeterminate'
@@ -22,7 +23,7 @@ type Props = CommonProps & ConditionalProps
 const LinearProgress = ({
   style,
   variant,
-  value,
+  value = 0,
   color = 'primary',
 }: Props) => {
   const ref = useRef<HTMLDivElement>(null)
@@ -32,10 +33,10 @@ const LinearProgress = ({
   }, [value])
 
   useEffect(() => {
-    let selectedColor = colors[`${color}`]
-    let lightenColor = colors[`light-${color}`]
-    ref.current?.style.setProperty('--bg-color', lightenColor)
-    ref.current?.style.setProperty('--fill-color', selectedColor)
+    let mainColor = globalTheme.colors[color].main
+    let lightColor = globalTheme.colors[color].light
+    ref.current?.style.setProperty('--bg-color', lightColor)
+    ref.current?.style.setProperty('--fill-color', mainColor)
   }, [color])
 
   return (
