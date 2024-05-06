@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { Color } from '../../types/types'
 import './LinearProgress.scss'
-import { globalTheme } from '../../variables'
+import colors from '../../styles/_colors.module.scss'
 
 interface CommonProps {
   style?: React.CSSProperties
@@ -33,8 +33,8 @@ const LinearProgress = ({
   }, [value])
 
   useEffect(() => {
-    let mainColor = globalTheme.colors[color].main
-    let lightColor = globalTheme.colors[color].light
+    let mainColor = colors[color]
+    let lightColor = colors['light-' + color]
     ref.current?.style.setProperty('--bg-color', lightColor)
     ref.current?.style.setProperty('--fill-color', mainColor)
   }, [color])

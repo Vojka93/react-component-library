@@ -39,37 +39,38 @@ button {
     font-size: $font-size-big;
     padding: $base-padding * 2.5 $base-padding * 3;
   }
-}
 
-@each $key, $value in $base-colors {
-  .btn-#{$key} {
-    background-color: $value;
+  @each $key, $value in $base-colors {
+    &.btn-#{$key} {
+      background-color: $value;
 
-    &.btn-contained {
-      color: white;
+      &.btn-contained {
+        border: $base-border-thickness solid $value;
+        color: white;
 
-      &:hover {
-        background-color: lighten($value, 5);
+        &:hover {
+          background-color: lighten($value, 5%);
+        }
       }
-    }
 
-    &.btn-outlined {
-      background-color: white;
-      border: $base-border-thickness solid $value;
-      color: $value;
+      &.btn-outlined {
+        background-color: white;
+        border: $base-border-thickness solid $value;
+        color: $value;
 
-      &:hover {
-        background-color: map-get($light-colors, 'light-#{$key}');
+        &:hover {
+          background-color: map-get($light-colors, 'light-#{$key}');
+        }
       }
-    }
 
-    &.btn-link {
-      background-color: white;
-      color: $value;
-      border: none;
+      &.btn-link {
+        background-color: white;
+        color: $value;
+        border: none;
 
-      &:hover {
-        text-decoration: underline;
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
   }

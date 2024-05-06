@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { Color } from '../../types/types'
 import './CircularProgress.scss'
-import { globalTheme } from '../../variables'
+import colors from '../../styles/_colors.module.scss'
 
 interface CircularProgressProps {
   style?: React.CSSProperties
@@ -21,8 +21,8 @@ const CircularProgress = ({
   }, [value])
 
   useEffect(() => {
-    let mainColor = globalTheme.colors[color].main
-    let lightColor = globalTheme.colors[color].light
+    let mainColor = colors[color]
+    let lightColor = colors['light-' + color]
 
     ref.current?.style.setProperty('--bg-color', mainColor)
     ref.current?.style.setProperty('--fill-color', lightColor)

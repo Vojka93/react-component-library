@@ -1,7 +1,6 @@
 import React from 'react'
 import { Color } from '../../types/types'
 import './Button.scss'
-import { globalTheme } from '../../variables'
 
 interface ButtonProps {
   style?: React.CSSProperties
