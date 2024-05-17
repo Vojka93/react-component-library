@@ -23,6 +23,6 @@ export const Determinate: Story = {
   args: {
     variant: 'determinate',
     value: 60,
-    color: 'error',
+    color: 'primary',
   },
 }

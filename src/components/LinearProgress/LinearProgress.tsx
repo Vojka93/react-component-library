@@ -1,11 +1,12 @@
 import React, { useEffect, useRef } from 'react'
-import { Color } from '../../types/types'
-import './LinearProgress.scss'
-import colors from '../../styles/_colors.module.scss'
+import { colors } from '../../types/types'
+import './LinearProgress.css'
 
 interface CommonProps {
   style?: React.CSSProperties
-  color?: Color
+  color?: keyof typeof colors
+  width?: number
+  height?: number
 }
 
 type ConditionalProps =
@@ -25,6 +26,8 @@ const LinearProgress = ({
   variant,
   value = 0,
   color = 'primary',
+  width = 200,
+  height = 8,
 }: Props) => {
   const ref = useRef<HTMLDivElement>(null)
 
@@ -33,11 +36,16 @@ const LinearProgress = ({
   }, [value])
 
   useEffect(() => {
-    let mainColor = colors[color]
-    let lightColor = colors['light-' + color]
-    ref.current?.style.setProperty('--bg-color', lightColor)
-    ref.current?.style.setProperty('--fill-color', mainColor)
+    ref.current?.style.setProperty('--color', colors[color])
   }, [color])
+
+  useEffect(() => {
+    ref.current?.style.setProperty('--width', `${width}px`)
+  }, [width])
+
+  useEffect(() => {
+    ref.current?.style.setProperty('--height', `${height}px`)
+  }, [height])
 
   return (
     <div

@@ -1,12 +1,11 @@
 import React, { useEffect, useRef } from 'react'
-import { Color } from '../../types/types'
-import './CircularProgress.scss'
-import colors from '../../styles/_colors.module.scss'
+import { colors } from '../../types/types'
+import './CircularProgress.css'
 
 interface CircularProgressProps {
   style?: React.CSSProperties
   value: number
-  color?: Color
+  color?: keyof typeof colors
 }
 
 const CircularProgress = ({
@@ -21,11 +20,7 @@ const CircularProgress = ({
   }, [value])
 
   useEffect(() => {
-    let mainColor = colors[color]
-    let lightColor = colors['light-' + color]
-
-    ref.current?.style.setProperty('--bg-color', mainColor)
-    ref.current?.style.setProperty('--fill-color', lightColor)
+    ref.current?.style.setProperty('--color', colors[color])
   }, [color])
 
   return (

@@ -15,6 +15,6 @@ type Story = StoryObj<typeof CircularProgress>
 export const Determinate: Story = {
   args: {
     value: 80,
-    color: 'blue',
+    color: 'primary',
   },
 }

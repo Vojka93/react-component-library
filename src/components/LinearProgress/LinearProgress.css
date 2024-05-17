@@ -1,15 +1,9 @@
-@import '../../styles/index';
-
-// variable
-$width: 200px;
-
 .linear-progress {
-  width: $width;
-  height: 10px;
-  border-radius: 20px;
+  width: var(--width, 200px);
+  height: var(--height, 8px);
   position: relative;
   overflow: hidden;
-  background: var(--bg-color);
+  background: color-mix(in oklab, var(--color) 20%, white);
 
   &:after {
     content: ' ';
@@ -17,12 +11,12 @@ $width: 200px;
     height: inherit;
     position: absolute;
     z-index: 2;
-    background: var(--fill-color);
+    background: var(--color);
   }
 
   &[data-variant='indeterminate'] {
     &:after {
-      width: calc($width / 100 * 60);
+      width: calc(var(--width) / 100 * 60);
       animation: progress 2s linear infinite;
     }
   }
@@ -34,14 +28,13 @@ $width: 200px;
       transition: width 500ms;
     }
   }
+}
+@keyframes progress {
+  from {
+    left: calc(var(--width) / 100 * 60 * -1);
+  }
 
-  @keyframes progress {
-    from {
-      left: calc($width / 100 * 60 * -1);
-    }
-
-    to {
-      left: 100%;
-    }
+  to {
+    left: 100%;
   }
 }

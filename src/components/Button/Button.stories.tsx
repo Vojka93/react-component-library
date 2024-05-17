@@ -16,6 +16,8 @@ type Story = StoryObj<typeof Button>
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Contained: Story = {
   args: {
+    color: 'primary',
+    variant: 'contained',
     children: 'Click me!',
   },
 }
@@ -35,5 +37,27 @@ export const Link: Story = {
     color: 'primary',
     size: 'medium',
     variant: 'link',
+  },
+}
+
+export const Ghost: Story = {
+  args: {
+    variant: 'ghost',
+    color: '#222222',
+    children: 'Click me!',
+  },
+}
+
+export const Hex: Story = {
+  args: {
+    color: '#6a5acd',
+    children: 'Click me!',
+  },
+}
+
+export const Disabled: Story = {
+  args: {
+    disabled: true,
+    children: 'Click me!',
   },
 }
